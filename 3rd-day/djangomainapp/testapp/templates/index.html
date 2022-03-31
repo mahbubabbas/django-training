@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h5>Student Registration Form</h5>
+<br>
+
+<form method="post" action="">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      {{ form.first_name|as_crispy_field }}
+    </div>
+
+    <div class="col-md-6">
+      {{ form.last_name|as_crispy_field }}
+    </div>
+
+    <div class="col-md-12">
+        {{ form.email|as_crispy_field }}
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+{% endblock %}
