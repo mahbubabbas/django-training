@@ -1,7 +1,7 @@
 # mahboob-django-project (MEDPro)
 ## _Code repo for awesome Django group @ C-TEA campus @ LT Mysuru_
 
-Created by the group _Django People_ for the group _Django People_.
+Created by the _Django Group_ for the _Django People_.
 
 ## License
 
