@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from testapp.form import EmployeeForm, EmployeeForm2
+from testapp.form import EmployeeForm, EmployeeForm2, EmployeePimgForm
 from testapp.utils import upload_file
 
 
@@ -33,3 +33,17 @@ def index2(request):
         emp = EmployeeForm2()
         
     return render(request, "index2.html", {"form": emp})
+
+
+def index3(request):
+    if request.method == 'POST':
+        emp = EmployeePimgForm(request.POST, request.FILES)
+        if emp.is_valid():
+            emp.save()
+            return HttpResponse("good job")
+        else:
+            return render(request, 'index3.html', {'form': emp})
+    else:
+        emp = EmployeePimgForm()
+
+    return render(request, "index3.html", {"form": emp})

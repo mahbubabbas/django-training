@@ -2,7 +2,7 @@ from dataclasses import field, fields
 from tokenize import blank_re
 from django import forms
 
-from testapp.models import Employee
+from testapp.models import Employee, EmployeePimg
 
 
 class EmployeeForm(forms.ModelForm):
@@ -34,3 +34,9 @@ class EmployeeForm2(forms.Form):
         label="Enter last name", max_length=10, required=True)
     email = forms.EmailField(label="Enter Email", required=False)
     profile_image = forms.FileField(required=False)  # for creating file input
+
+
+class EmployeePimgForm(forms.ModelForm):
+    class Meta:
+        model = EmployeePimg
+        fields = '__all__'

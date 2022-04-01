@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      {{ form.first_name|as_crispy_field }}
+    </div>
+
+    <div class="col-md-6">
+      {{ form.last_name|as_crispy_field }}
+    </div>
+
+    <div class="col-md-12">
+      {{ form.email|as_crispy_field }}
+    </div>
+
+    <div class="col-md-12">
+      {{ form.profile_image|as_crispy_field }}
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+{% endblock %}
