@@ -1,7 +1,5 @@
-
-
 from dataclasses import field, fields
-
+from tokenize import blank_re
 from django import forms
 
 from testapp.models import Employee
@@ -27,3 +25,12 @@ class EmployeeForm(forms.ModelForm):
                 ['A min of 3 chars required for last name'])
 
         return self.cleaned_data
+
+
+class EmployeeForm2(forms.Form):
+    first_name = forms.CharField(
+        label="Enter first name", max_length=50, required=True)
+    last_name = forms.CharField(
+        label="Enter last name", max_length=10, required=True)
+    email = forms.EmailField(label="Enter Email", required=False)
+    profile_image = forms.FileField(required=False)  # for creating file input

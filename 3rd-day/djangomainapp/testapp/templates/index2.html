@@ -3,10 +3,6 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-<h5>Student Registration Form</h5>
-<br>
-
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="row">
@@ -29,5 +25,4 @@
 
   <button type="submit" class="btn btn-success">Save</button>
 </form>
-
 {% endblock %}
