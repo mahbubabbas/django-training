@@ -1,13 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base_home.html' %}
 
 {% load crispy_forms_tags %}
 
 {% block content %}
-
 <h1>Welcome to Django Ecomm Home</h1>
 
 <h4>Hi {{user.username}}, how are you doing today?</h4>
-
 
 <p>
   <a href="/logout">Logout</a>

@@ -26,9 +26,8 @@ def register(req):
         userForm = UserFormsForm()
         return render(req, "users/register.html", {"form": userForm})
 
+
 # user login form
-
-
 def login(req):
     if req.method == 'POST':
         userForm = UserForm(req.POST)
@@ -37,6 +36,7 @@ def login(req):
                 user = User.objects.get(
                     username=userForm.cleaned_data['username'], password=userForm.cleaned_data['password'])
                 req.session['user_id'] = user.id
+                req.session['username'] = user.username
 
                 return redirect('home')
 
@@ -49,19 +49,19 @@ def login(req):
         userForm = UserForm()
         return render(req, "users/login.html", {"form": userForm})
 
+
 # home page
-
-
 def home(req):
     if 'user_id' in req.session:
-        return render(req, "home.html")
+        return render(req, "home.html", {'user': req.session})
     else:
         return redirect('login')
 
 
+# logout page
 def logout(req):
     try:
         del req.session['user_id']
     except KeyError:
         pass
-    return HttpResponse("You're logged out.")
+    return redirect('login')

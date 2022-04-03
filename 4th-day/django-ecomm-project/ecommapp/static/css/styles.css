@@ -1,0 +1,12 @@
+.background {
+  background-image: url('../images/back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background-home {
+  background-image: url('../images/back_home.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
